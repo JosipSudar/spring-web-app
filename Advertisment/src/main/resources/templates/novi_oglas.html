@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Oglasi.hr</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Oglasi.hr</h1>
+		<hr>
+		<h2>Dodaj oglas</h2>
+		<form th:action="@{/saveOglas}" th:object="${oglas}" method="POST" action="#">
+			<input type="text" th:field="*{imeVozila}" placeholder="Marka vozila" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{cijena}" placeholder="Cijena vozila" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{godina}" placeholder="Godina proizvodnje" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{imeOglasivaca}" placeholder="Vaše ime i prezime" class="form-control mb-4 col-4">
+			<button type="submit" class="btn btn-info col-2"> Spremi oglas</button>
+		</form> 
+	</div>
+</body>
+</html>

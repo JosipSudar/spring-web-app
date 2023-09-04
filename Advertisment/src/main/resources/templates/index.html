@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Oglasi.hr</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+	<h1>Svi oglasi</h1>
+	<a th:href = "@{/noviOglas}" class="btn btn-primary btn-sm mb-3"> Dodaj oglas + </a>
+	<table border="1" class="table table-striped table-responsive-md">
+		<thead>
+			<tr>
+				<th>Marka vozila</th>
+				<th>Cijena vozila</th>
+				<th>Godina proizvodnje</th>
+				<th>Ime oglašivača</th>
+				<th> Actions </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="oglas : ${listOglasi}">
+				<td th:text="${oglas.imeVozila}"></td>
+				<td th:text="${oglas.cijena}"></td>
+				<td th:text="${oglas.godina}"></td>
+				<td th:text="${oglas.imeOglasivaca}"></td>
+				<td class="d-flex justify-content-between"><a th:href="@{/showFormForUpdate/{id}(id=${oglas.id})}" class="btn btn-primary">Izmijeni</a>
+				<a th:href="@{/deleteOglas/{id}(id=${oglas.id})}" class="btn btn-danger">Obriši</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
